@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Special Day For You ❤️</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Playfair Display, Great Vibes, Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            roseGold: '#B76E79',
+            blushPink: '#FFD1DC',
+            deepRose: '#8B0032',
+            softGold: '#E6C687',
+            midnightDark: '#12050A',
+            cardBg: 'rgba(255, 240, 243, 0.85)'
+          },
+          fontFamily: {
+            cursive: ['Great Vibes', 'cursive'],
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #12050a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #b76e79;
+      border-radius: 4px;
+    }
+
+    /* Floating Canvas Animation Behind Content */
+    #hearts-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Glassmorphism elements */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(230, 198, 135, 0.4);
+      box-shadow: 0 10px 30px rgba(139, 0, 50, 0.08);
+    }
+    
+    .glass-dark {
+      background: rgba(20, 5, 12, 0.75);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(230, 198, 135, 0.25);
+    }
+
+    /* Shimmer animation for headers */
+    .gold-shimmer {
+      background: linear-gradient(90deg, #b76e79, #e6c687, #b76e79);
+      background-size: 200% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      animation: shimmer 4s linear infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    /* Pulsing Light Glow */
+    .glow-effect {
+      box-shadow: 0 0 25px rgba(183, 110, 121, 0.5);
+      animation: pulseGlow 3s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 15px rgba(183, 110, 121, 0.4); }
+      100% { box-shadow: 0 0 35px rgba(230, 198, 135, 0.7); }
+    }
+
+    /* Floating keyframe for cute badges */
+    .floating-element {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(2deg); }
+    }
+  </style>
+</head>
+
+<body class="bg-midnightDark text-gray-800 font-sans selection:bg-roseGold selection:text-white relative overflow-x-hidden">
+
+  <!-- Interactive Background Canvas for Hearts & Particles -->
+  <canvas id="hearts-canvas"></canvas>
+
+  <main class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-6 md:py-8 space-y-12 md:space-y-16">
+
+    <!-- HERO SECTION -->
+    <section class="min-h-[85vh] md:min-h-[90vh] flex flex-col justify-center items-center text-center relative py-6 md:py-12">
+      <div class="glass-dark p-5 sm:p-8 md:p-14 rounded-3xl w-full max-w-3xl border border-roseGold/30 glow-effect transform transition hover:scale-[1.01] duration-500">
+        
+        <span class="inline-block px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-roseGold/20 text-softGold border border-softGold/30 text-xs md:text-sm tracking-widest uppercase mb-4 sm:mb-6 floating-element">
+          ✨ You Are Invited ✨
+        </span>
+
+        <h1 class="font-cursive text-4xl sm:text-6xl md:text-7xl text-blushPink mb-4 leading-tight">
+          To An Unforgettable Evening
+        </h1>
+
+        <p class="font-serif italic text-base sm:text-xl md:text-2xl text-roseGold mb-6 sm:mb-8">
+          " Every moment with you is my favorite story ❤️ "
+        </p>
+
+        <!-- Date & Time Highlight Box -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 my-6 text-white text-left">
+          <div class="flex items-center space-x-4 bg-white/5 p-3.5 sm:p-4 rounded-2xl border border-white/10 hover:border-roseGold/50 transition">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-roseGold/20 flex items-center justify-center text-softGold text-lg sm:text-xl shrink-0">
+              <span>📆</span>
+            </div>
+            <div>
+              <p class="text-xs text-roseGold font-medium">THE DATE</p>
+              <p class="text-base sm:text-lg font-semibold text-white">Tuesday, Nov 17, 2026</p>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-4 bg-white/5 p-3.5 sm:p-4 rounded-2xl border border-white/10 hover:border-roseGold/50 transition">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-roseGold/20 flex items-center justify-center text-softGold text-lg sm:text-xl shrink-0">
+              <span>⏱️</span>
+            </div>
+            <div>
+              <p class="text-xs text-roseGold font-medium">THE TIME</p>
+              <p class="text-base sm:text-lg font-semibold text-white">7:30 PM</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Venue Banner -->
+        <div class="bg-gradient-to-r from-roseGold/20 via-softGold/20 to-roseGold/20 p-4 sm:p-5 rounded-2xl border border-softGold/40 text-center mt-6">
+          <p class="text-xs text-softGold font-bold tracking-widest uppercase">DESTINATION</p>
+          <h2 class="text-xl sm:text-2xl md:text-3xl font-serif text-white font-bold tracking-wide mt-1">
+            📍 Luce Della Luna
+          </h2>
+        </div>
+
+        <!-- Scroll Down Hint -->
+        <div class="mt-8 sm:mt-10 flex justify-center">
+          <a href="#itinerary" class="text-softGold/70 hover:text-softGold transition flex flex-col items-center gap-2">
+            <span class="text-xs tracking-widest uppercase">Explore Our Plan</span>
+            <i class="fa-solid fa-chevron-down animate-bounce text-lg"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR FAVORITE SONG SECTION -->
+    <section class="scroll-mt-8">
+      <div class="text-center mb-6 sm:mb-8">
+        <span class="text-xs font-bold tracking-widest text-softGold uppercase">The Soundtrack To Us 🎵❤️ </span>
+        <h2 class="font-cursive text-4xl sm:text-5xl md:text-6xl gold-shimmer mt-1">Our Favorite Song</h2>
+      </div>
+
+      <div class="glass-dark p-6 sm:p-8 md:p-10 rounded-3xl border border-roseGold/40 shadow-2xl relative overflow-hidden max-w-2xl mx-auto">
+        
+        <!-- Ambient background glow behind the card -->
+        <div class="absolute -top-10 -left-10 w-40 h-40 bg-roseGold/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-softGold/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 relative z-10">
+          
+          <!-- Animated Spinning Vinyl Record Graphic -->
+          <div class="relative group cursor-pointer flex-shrink-0">
+            <!-- Glowing Outer Ring -->
+            <div class="w-32 h-32 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full bg-gradient-to-tr from-roseGold via-softGold to-deepRose p-1 shadow-2xl group-hover:scale-105 transition duration-500">
+              <!-- Vinyl Body -->
+              <div class="w-full h-full bg-neutral-900 rounded-full flex items-center justify-center relative overflow-hidden border-4 border-neutral-800">
+                <!-- Record Grooves -->
+                <div class="absolute inset-2 border border-white/10 rounded-full"></div>
+                <div class="absolute inset-5 border border-white/10 rounded-full"></div>
+                <div class="absolute inset-8 border border-white/10 rounded-full"></div>
+                <!-- Vinyl Label Art -->
+                <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-roseGold/30 border-2 border-softGold flex items-center justify-center text-softGold text-lg sm:text-xl shadow-inner">
+                  🎸
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Song Info & YouTube Trigger CTA -->
+          <div class="text-center sm:text-left flex-1 space-y-4 w-full">
+            <div>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-roseGold/15 border border-roseGold/30 text-softGold text-xs font-semibold tracking-wider uppercase">
+                <span class="w-2 h-2 rounded-full bg-roseGold animate-ping"></span>
+                Now Playing In Our Hearts
+              </span>
+              <h3 class="text-xl sm:text-2xl md:text-3xl font-serif font-bold text-white mt-2">
+                Amr Diab — Wi Neaesh
+              </h3>
+              <p class="text-blushPink/70 text-sm font-sans mt-1">
+                Our timeless melody • 3:59
+              </p>
+            </div>
+
+            <!-- Simulated Equalizer Audio Wave Visualizer -->
+            <div class="flex items-end justify-center sm:justify-start gap-1 h-6 pt-1">
+              <span class="w-1 bg-roseGold/80 rounded-full animate-[bounce_1s_infinite_100ms] h-4"></span>
+              <span class="w-1 bg-softGold/80 rounded-full animate-[bounce_1s_infinite_300ms] h-6"></span>
+              <span class="w-1 bg-blushPink/80 rounded-full animate-[bounce_1s_infinite_200ms] h-3"></span>
+              <span class="w-1 bg-roseGold/80 rounded-full animate-[bounce_1s_infinite_400ms] h-5"></span>
+              <span class="w-1 bg-softGold/80 rounded-full animate-[bounce_1s_infinite_150ms] h-2"></span>
+              <span class="w-1 bg-blushPink/80 rounded-full animate-[bounce_1s_infinite_350ms] h-6"></span>
+            </div>
+
+            <!-- YouTube Action Button -->
+            <div class="pt-2">
+              <a href="https://youtu.be/EF1axk6KJXg" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="inline-flex items-center justify-center gap-3 w-full sm:w-auto bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-medium text-sm px-6 sm:px-7 py-3 sm:py-3.5 rounded-2xl shadow-xl hover:shadow-red-600/30 transition duration-300 transform hover:-translate-y-0.5 active:translate-y-0">
+                <i class="fa-solid fa-play text-xs"></i>
+                <span>Play Song on YouTube</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-70"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DRESS CODE & OUTFITS SECTION -->
+    <section class="scroll-mt-8">
+      <div class="text-center mb-8 sm:mb-10">
+        <span class="text-xs font-bold tracking-widest text-softGold uppercase">Style & Glamour ✨</span>
+        <h2 class="font-cursive text-4xl sm:text-5xl md:text-6xl gold-shimmer mt-1">The Dress Code</h2>
+        <p class="text-blushPink/80 font-serif italic text-sm md:text-base">Dressed to impress, made to match ❤️</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        
+        <!-- Her Outfit Photo -->
+        <div class="glass-card p-4 sm:p-6 rounded-3xl text-center group hover:shadow-2xl transition duration-500">
+          <div class="relative overflow-hidden rounded-2xl h-64 sm:h-80 flex items-center justify-center border border-roseGold/30 p-2">
+            <img src="/Users/amryasser/Desktop/BD/imgs/Gemini_Generated_Image_df10l7df10l7df10.jpeg" alt="Her Outfit" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition duration-500" id="her-outfit-img">
+          </div>
+          <h3 class="font-serif text-xl sm:text-2xl font-bold text-roseGold mt-4 sm:mt-5">My Princess Outfit</h3>
+          <p class="text-gray-900 font-cursive text-lg sm:text-xl mt-1">Elegance, beauty</p>
+        </div>
+
+        <!-- His Outfit Photo -->
+        <div class="glass-card p-4 sm:p-6 rounded-3xl text-center group hover:shadow-2xl transition duration-500">
+          <div class="relative overflow-hidden rounded-2xl h-64 sm:h-80 flex items-center justify-center border border-roseGold/30 p-2">
+            <img src="/Users/amryasser/Desktop/BD/imgs/Gemini_Generated_Image_df10l7df10l7df10 copy.jpeg" alt="His Outfit" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition duration-500" id="his-outfit-img">
+          </div>
+          <h3 class="font-serif text-xl sm:text-2xl font-bold text-gray-900 mt-4 sm:mt-5">My Outfit</h3>
+          <p class="text-roseGold font-cursive text-xl mt-1">Ready to be amazed by my beautiful girl</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ITINERARY / WHAT WE ARE GONNA DO -->
+    <section id="itinerary" class="scroll-mt-8">
+      <div class="text-center mb-8 sm:mb-12">
+        <h2 class="font-cursive text-4xl sm:text-5xl md:text-6xl gold-shimmer">What We're Gonna Do</h2>
+        <p class="text-blushPink/80 font-serif italic text-sm sm:text-base md:text-lg mt-2">A magical journey crafted just for two 👫</p>
+      </div>
+
+      <div class="relative border-l-2 border-roseGold/40 ml-3 sm:ml-6 md:ml-32 space-y-8 sm:space-y-10">
+        
+        <!-- Step 1 -->
+        <div class="relative pl-6 sm:pl-8 md:pl-12 group">
+          <div class="absolute -left-[17px] top-1 w-8 h-8 rounded-full bg-midnightDark border-2 border-roseGold flex items-center justify-center text-softGold text-sm shadow-md group-hover:scale-125 transition">
+            🚗
+          </div>
+          <div class="glass-card p-4 sm:p-6 rounded-2xl hover:border-roseGold transition duration-300 transform group-hover:-translate-y-1">
+            <span class="text-xs font-bold uppercase text-roseGold tracking-wider">Step 01</span>
+            <h3 class="text-lg sm:text-xl font-serif font-bold text-gray-900 mt-1">Pickup in My Car 🚗</h3>
+            <p class="text-gray-600 text-xs sm:text-sm mt-2 leading-relaxed">
+              Get dressed, look handsome & gorgeous! I'll pick you up in my car. Put on your favorite playlist and let the smooth drive begin.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative pl-6 sm:pl-8 md:pl-12 group">
+          <div class="absolute -left-[17px] top-1 w-8 h-8 rounded-full bg-midnightDark border-2 border-roseGold flex items-center justify-center text-softGold text-sm shadow-md group-hover:scale-125 transition">
+            ☕️
+          </div>
+          <div class="glass-card p-4 sm:p-6 rounded-2xl hover:border-roseGold transition duration-300 transform group-hover:-translate-y-1">
+            <span class="text-xs font-bold uppercase text-roseGold tracking-wider">Step 02</span>
+            <h3 class="text-lg sm:text-xl font-serif font-bold text-gray-900 mt-1">Open Air Mall ☕️</h3>
+            <p class="text-gray-600 text-xs sm:text-sm mt-2 leading-relaxed">
+              Our first stop! A cozy walk around Open Air Mall, enjoying the open sky breeze, sweet coffee, and taking early date vibes photos.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative pl-6 sm:pl-8 md:pl-12 group">
+          <div class="absolute -left-[17px] top-1 w-8 h-8 rounded-full bg-midnightDark border-2 border-roseGold flex items-center justify-center text-softGold text-sm shadow-md group-hover:scale-125 transition">
+            🌙
+          </div>
+          <div class="glass-card p-4 sm:p-6 rounded-2xl hover:border-roseGold transition duration-300 transform group-hover:-translate-y-1">
+            <span class="text-xs font-bold uppercase text-roseGold tracking-wider">Step 03</span>
+            <h3 class="text-lg sm:text-xl font-serif font-bold text-gray-900 mt-1">Arriving at Luce Della Luna ❤️</h3>
+            <p class="text-gray-600 text-xs sm:text-sm mt-2 leading-relaxed">
+              Heading straight to our main destination in Obour City right on time for our glowing, romantic dinner reservation.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="relative pl-6 sm:pl-8 md:pl-12 group">
+          <div class="absolute -left-[17px] top-1 w-8 h-8 rounded-full bg-midnightDark border-2 border-roseGold flex items-center justify-center text-softGold text-sm shadow-md group-hover:scale-125 transition">
+            🎁
+          </div>
+          <div class="glass-card p-4 sm:p-6 rounded-2xl hover:border-roseGold transition duration-300 transform group-hover:-translate-y-1 border-2 border-softGold/50">
+            <span class="text-xs font-bold uppercase text-deepRose tracking-wider bg-blushPink/50 px-2 py-0.5 rounded">Special Moment</span>
+            <h3 class="text-lg sm:text-xl font-serif font-bold text-gray-900 mt-1">The Unboxing & Gift Reveal 🎁</h3>
+            <p class="text-gray-600 text-xs sm:text-sm mt-2 leading-relaxed">
+              Before we step inside, we stop for the big moment! You get to unbox your special surprise birthday gift. Can't wait to see your smile!
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="relative pl-6 sm:pl-8 md:pl-12 group">
+          <div class="absolute -left-[17px] top-1 w-8 h-8 rounded-full bg-midnightDark border-2 border-roseGold flex items-center justify-center text-softGold text-sm shadow-md group-hover:scale-125 transition">
+            🍷
+          </div>
+          <div class="glass-card p-4 sm:p-6 rounded-2xl hover:border-roseGold transition duration-300 transform group-hover:-translate-y-1">
+            <span class="text-xs font-bold uppercase text-roseGold tracking-wider">Step 05</span>
+            <h3 class="text-lg sm:text-xl font-serif font-bold text-gray-900 mt-1">Dinner, Drinks & Endless Photos 📸</h3>
+            <p class="text-gray-600 text-xs sm:text-sm mt-2 leading-relaxed">
+              Stepping inside for delicious food, great conversation, toasts to your birthday, and taking LOTS of romantic pictures together.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="relative pl-6 sm:pl-8 md:pl-12 group">
+          <div class="absolute -left-[17px] top-1 w-8 h-8 rounded-full bg-midnightDark border-2 border-roseGold flex items-center justify-center text-softGold text-sm shadow-md group-hover:scale-125 transition">
+            🏮
+          </div>
+          <div class="glass-card p-4 sm:p-6 rounded-2xl hover:border-roseGold transition duration-300 transform group-hover:-translate-y-1 border-2 border-roseGold">
+            <span class="text-xs font-bold uppercase text-roseGold tracking-wider">Step 06</span>
+            <h3 class="text-lg sm:text-xl font-serif font-bold text-gray-900 mt-1">Sky Lantern Flying Session ✨</h3>
+            <p class="text-gray-600 text-xs sm:text-sm mt-2 leading-relaxed">
+              Right as we leave the venue, we light up our glowing Sky Lantern under the stars, make a sweet wish together, and watch it fly high!
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 7 -->
+        <div class="relative pl-6 sm:pl-8 md:pl-12 group">
+          <div class="absolute -left-[17px] top-1 w-8 h-8 rounded-full bg-midnightDark border-2 border-roseGold flex items-center justify-center text-softGold text-sm shadow-md group-hover:scale-125 transition">
+            🏡
+          </div>
+          <div class="glass-card p-4 sm:p-6 rounded-2xl hover:border-roseGold transition duration-300 transform group-hover:-translate-y-1">
+            <span class="text-xs font-bold uppercase text-roseGold tracking-wider">Step 07</span>
+            <h3 class="text-lg sm:text-xl font-serif font-bold text-gray-900 mt-1">Safe Journey Home 🏡</h3>
+            <p class="text-gray-600 text-xs sm:text-sm mt-2 leading-relaxed">
+              A smooth ride back home with warm hearts, full bellies, unforgettable memories, and a soul full of love.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MEMORIES & COUPLE PHOTOS GALLERY -->
+    <section class="scroll-mt-8">
+      <div class="text-center mb-8 sm:mb-10">
+        <span class="text-xs font-bold tracking-widest text-softGold uppercase">Our Love Gallery 👫</span>
+        <h2 class="font-cursive text-4xl sm:text-5xl md:text-6xl gold-shimmer mt-1">You & Me </h2>
+        <p class="text-roseGold font-serif text-sm md:text-base">Ready To Take More Photos With You </p>
+        <p class="text-blushPink/80 font-serif italic text-sm md:text-base">Capturing our favorite moments together ❤️</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+        
+        <!-- Photo 1 -->
+        <div class="glass-card p-3 rounded-2xl group hover: hover:shadow-2xl hover:shadow-roseGold/40 transition duration-500 cursor-pointer border border-roseGold/30">
+          <div class="relative h-64 sm:h-80 overflow-hidden rounded-xl bg-gray-100 flex items-center justify-center">
+            <img src="/Users/amryasser/Desktop/BD/imgs/2D001687-2AC4-49C8-B9BE-BF11959751C4.JPEG" alt="Us Together By The Pool" class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-700 ease-in-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-midnightDark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+            </div>
+          </div>
+          <p class="text-center font-cursive text-xl sm:text-2xl text-deepRose mt-3">Pure Happiness ❤️</p>
+        </div>
+
+        <!-- Photo 2 -->
+        <div class="glass-card p-3 rounded-2xl group hover:transition duration-300 cursor-pointer">
+          <div class="relative h-64 sm:h-80 overflow-hidden rounded-xl bg-gray-100">
+            <img src="/Users/amryasser/Desktop/BD/imgs/4ba8edc6-112e-4ef0-89be-3fa3b8aa5033.JPG" alt="Our Memory" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-midnightDark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+            </div>
+          </div>
+          <p class="text-center font-cursive text-xl sm:text-2xl text-deepRose mt-3">My Favorite Girl ✨</p>
+        </div>
+
+        <!-- Photo 3 -->
+        <div class="glass-card p-3 rounded-2xl group hover: transition duration-300 cursor-pointer sm:col-span-2 md:col-span-1">
+          <div class="relative h-64 sm:h-80 overflow-hidden rounded-xl bg-gray-100">
+            <img src="/Users/amryasser/Desktop/BD/imgs/IMG_2972.JPG" alt="Our Memory" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-midnightDark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+            </div>
+          </div>
+          <p class="text-center font-cursive text-xl sm:text-2xl text-deepRose mt-3">Today, Tomorrow & Forever 🌹</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="text-center py-6 sm:py-8 text-softGold/60 text-xs tracking-widest relative z-10 uppercase px-4">
+    Made with love for someone special ❤️🌹
+  </footer>
+
+</body>
+</html>
